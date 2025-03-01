@@ -3,7 +3,7 @@ package cars;
 public class Sedan extends Vehicle
 	{
 
-		public Sedan(CarCompany make, String model)
+		public Sedan(CarCompany make, String model) //Constructor
 			{
 				super(make, model);
 				
