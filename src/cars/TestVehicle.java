@@ -124,6 +124,42 @@ public class TestVehicle
 				
 				
 				
+				//*******Test MotorCycle Class and methods*************
+				CarCompany harleyDavidson = new CarCompany("Harley Davidson");
+				MotorCycle motorCycle1 = new MotorCycle(harleyDavidson,"Street Glide");
+				
+				//Test passenger and cargo capacity of Todd's Truck.
+				System.out.println(motorCycle1 + " has a passanger capacity of: " + motorCycle1.getPassengerCapacity());
+				System.out.println(motorCycle1 + " has the cargo capacity of: " + motorCycle1.getCargoCapacity());
+				
+				
+				// test setloadCargo, getAmountCargo, setloadPassengers, and getNumPassengers methods
+				System.out.println(motorCycle1 + " is a: " + motorCycle1);
+				motorCycle1.setloadCargo(11);
+				System.out.println(motorCycle1 + " has this amount of Cargo: " + motorCycle1.getAmountCargo()); // 11
+				motorCycle1.setloadPassengers(1);
+				System.out.println(motorCycle1 + " has this many passangers: " + motorCycle1.getNumPassengers()); // 1 passengers
+				
+				//Test the unLoadPass, numUnloaded, and unloadCargo methods
+				int numUnloadedPassMotorCycle = motorCycle1.unLoadPass();
+				System.out.println(motorCycle1 + " has unloaded all: " + numUnloadedPassMotorCycle + " of it's passengers"); // 1 passengers
+				System.out.println(motorCycle1 + " now has this many passangers: " + motorCycle1.getNumPassengers());  // 0 passengers
+				
+				int numUnloadedCargoMotorCycle = motorCycle1.unLoadCargo();
+				System.out.println(motorCycle1 +" has removed all " + numUnloadedCargoMotorCycle + " units of cargo."); // 11 of cargo
+				System.out.println(motorCycle1 + " now has " + motorCycle1.getAmountCargo() + " units of cargo."); // zero of cargo
+				
+				//Test getMPG and getAverageSpeed
+				System.out.println(motorCycle1 + " average speed is " + motorCycle1.getAverageSpeed() + " mph and miles per gallon is " + motorCycle1.getMPG());//51 and 45 
+				
+				//Test transportPeople() for motorCycle to move 2 people to a destination 17 miles away; 
+				motorCycle1.transportPeople(2,17); //Time: 51 miles / 51 mph = 1.00hrs   Gas:51 miles / 45 mpg = 1.13 gallons of fuel
+				
+				//Test transportCargo() for motorCycle1 to move 55 units of cargo 66 miles
+				motorCycle1.transportCargo(55, 66);// Time: 3 trips * 66 miles / 51 mph = 3.88 hrs, Gas:  198 miles / 45mpg =  4.4 gallons.
+				System.out.println();
+				System.out.println();
+				
 			}
 
 	}
