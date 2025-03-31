@@ -3,9 +3,11 @@ package cars;
 public class TestVehicle
 	{
 
-		public static void main(String[] args)
-			{	
-						
+	public static void main(String[] args)
+		{		
+			try 
+				{
+					
 				
 				// Lets build anew Vehicle and carCompany
 				CarCompany ford = new CarCompany("Ford");
@@ -17,10 +19,11 @@ public class TestVehicle
 				
 				
 				// test setloadCargo, getAmountCargo, setloadPassengers, and getNumPassengers methods
+				// ****  we will overload people and cargo here to test exception behavior ****
 				System.out.println(lisaSedan + " is a: " + lisaSedan);
-				lisaSedan.setloadCargo(22);
+				lisaSedan.setloadCargo(251); // throws exception
 				System.out.println(lisaSedan + " has this amount of Cargo: " + lisaSedan.getAmountCargo()); // 22 of cargo
-				lisaSedan.setloadPassengers(2);
+				lisaSedan.setloadPassengers(5); // throws exception
 				System.out.println(lisaSedan + " has this many passangers: " + lisaSedan.getNumPassengers()); // 2 passengers
 				
 				//Test the unLoadPass, numUnloaded, and unloadCargo methods
@@ -59,7 +62,7 @@ public class TestVehicle
 				System.out.println("Todds Truck is a: " + toddTruck);
 				toddTruck.setloadCargo(650);
 				System.out.println("Todds truck has this amount of Cargo: " + toddTruck.getAmountCargo()); // 650
-				toddTruck.setloadPassengers(1);
+				toddTruck.setloadPassengers(3); //should throw exception
 				System.out.println("Todds truck has this many passangers: " + toddTruck.getNumPassengers()); // 1 passengers
 				
 				//Test the unLoadPass, numUnloaded, and unloadCargo methods
@@ -160,6 +163,20 @@ public class TestVehicle
 				System.out.println();
 				System.out.println();
 				
-			}
+				} //end of try
+				
+							
+				catch (CapacityExceedException e)
+				{	
+					e.printStackTrace();
+					
+				}
+			
+//				catch (Exception e)  //this was built for trying different exception throwing scenarios
+//					{
+//						e.printStackTrace();
+//					}
+				
+			} //end of main
 
-	}
+	} //end of class

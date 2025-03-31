@@ -80,22 +80,40 @@ public abstract class Vehicle
 		}
 		
 		/**
-		 * Put passengers into the vehicle
+		 * Put passengers into the vehicle, and checks to see if overloaded 
 		 * @param numberPass - the number of passengers to put into the vehicle
+		 * @throws CapacityExceedException -if user tries to load passengers that is greater than capacity of vehicle
 		 */
-		public void setloadPassengers(int numberPass)
-		{
+		
+		public void setloadPassengers(int numberPass) throws CapacityExceedException
+		{	
 			this.numPass += numberPass;
+			
+			if (this.numPass > this.getPassengerCapacity()) // Checks for overloading people into vehicle
+				{
+					throw new CapacityExceedException("Your "+ this.getMake() + " " + this.getModel() + " person capacity is: " + this.getPassengerCapacity()
+							+ " and you attempted: " + this.numPass) ;
+				}
+			
 		}
 		
 		
 		/**
 		 * Put cargo into the vehicle
 		 * @param addCargo
+		 * @throws CapacityExceedException - if user tries to load cargo greater than manufactures recommendations
 		 */
-		public void setloadCargo(int addCargo)
+		public void setloadCargo(int addCargo) throws CapacityExceedException
 		{
 			this.amtCargo += addCargo;
+			
+			if (this.amtCargo > this.getCargoCapacity()) // Checks for overloading cargo into vehicle
+				{
+					throw new CapacityExceedException("Your " + this.getMake() + " " + this.getModel() + " cargo capacity is : " + this.getCargoCapacity()
+					+ " and you attempted: " + this.amtCargo) ;
+				}
+			
+			
 		}
 		
 		/**
